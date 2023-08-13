@@ -1,12 +1,21 @@
 """
-Обробіть виняток IndexError, коли програма намагається отримати доступ до неправильного індексу в списку.
+Створіть функцію, яка приймає два числа від користувача
+та обробляє помилку, якщо введені дані не є числами.
 """
 
-numbers_list = ['1', '2', '3']
-try:
-    first_number = numbers_list[0]
-    print(first_number)
-    last_number = numbers_list[len(numbers_list)]
-    print(last_number)
-except IndexError as e:
-    print(e)
+
+def get_two_numbers():
+    x = input("Введіть перше число: ")
+    y = input("Введіть друге число: ")
+
+    try:
+        x = float(x)
+        y = float(y)
+    except ValueError:
+        print("Ви ввели не числа. Спробуйте ще.")
+        return get_two_numbers()
+
+    return x, y
+
+
+print(get_two_numbers())
