@@ -1,10 +1,19 @@
 """
-Напишіть програму, яка відкриває файл для читання
-та обробляє помилку FileNotFoundError, якщо файл не знайдено.
+Реалізуйте функцію, яка ділить два числа, але обробляє помилку
+**`ZeroDivisionError`**, якщо друге число дорівнює нулю.
 """
 
-try:
-    file_name = str(input("Введіть ім'я вашого файлу у форматі file_name.txt: "))
-    file = open(file_name, "r")
-except FileNotFoundError:
-    print(f"Помилка: файл не знайдено")
+
+def division():
+    num_1 = int(input("Enter first number: "))
+    num_2 = int(input("Enter second number: "))
+    try:
+        result = num_1 / num_2
+    except ZeroDivisionError:
+        print("Помилка: На нуль ділити заборонено")
+        return
+
+    return result
+
+print(division())
+
